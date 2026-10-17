@@ -1,0 +1,117 @@
+/* Сброс некоторых стандартных стилей */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Обязательно задаём высоту для html/body, чтобы работали vh-единицы */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Основной стиль для навигации */
+nav {
+    background-color: #333;
+    color: white;
+}
+
+/* Стили для элементов списка в навигации */
+nav ul {
+    display: flex;
+    padding: 5px;
+    font-size: 30px;
+    transform: translateY(5px); /* <-- исправлено: добавлена точка с запятой */
+}
+
+/* Объединённые стили для аватара */
+.avatar-container {
+    margin-left: -2px;
+    margin-top: 20px;
+    transform: translateY(-18px);
+    text-align: center;
+}
+
+.rounded-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+nav li {
+    position: relative;
+    margin: 0 15px;
+}
+
+/* Стили для ссылок в навигации */
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 20px 15px;
+    display: block;
+}
+
+/* Эффект при наведении на ссылки */
+nav a:hover {
+    background-color: #575757;
+}
+
+/* Стили для подменю */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    z-index: 1000;
+}
+
+/* Показываем подменю при наведении */
+nav li:hover .submenu {
+    display: block;
+}
+
+/* Стили для ссылок в подменю */
+.submenu a {
+    padding: 10px 15px;
+    color: white;
+}
+
+.submenu a:hover {
+    background-color: #575757;
+}
+
+/* Стилизация контейнера для текста */
+.text-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    margin: 20px;
+}
+
+.text-center h1,
+.text-center p {
+    margin: 8px;
+}
+
+.small-image {
+    width: 120px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.portfolio { 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.portfolio-content { 
+    flex-grow: 1; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}

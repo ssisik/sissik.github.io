@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Air Max — Страница товара</title>
+    <link rel="stylesheet" href="../css/styledoom.css">
+</head>
+<body>
+
+    <main class="product-page">
+        <!-- Галерея (Видео, фото, листинг) -->
+        <section class="product-gallery">
+            <!-- Основной блок с картинкой и кнопкой покупки поверх -->
+            <div class="main-media-wrapper">
+                <img id="main-image" src="Doom-Eternal/Doom_Eternal.jpg" alt="Основное фото товара" class="main-media">
+                
+                <!-- Кнопка покупки поверх изображения -->
+                <a href="https://example.com/checkout-link" target="_blank" class="buy-overlay-btn" aria-label="Купить товар">
+                    Купить
+                </a>
+            </div>
+
+            <!-- Листинг (миниатюры фото и видео) -->
+            <div class="media-listing">
+                <!-- Фото-миниатюры -->
+                <div class="thumb" data-type="image" data-src="../images/Doom-Eternal/Doom-Eternal-1.jpg">
+                    <img src="../images/Doom-Eternal/Doom-Eternal-1.jpg" alt="Фото 1">
+                </div>
+                <div class="thumb" data-type="image" data-src="../images/Doom-Eternal/Doom-Eternal-2.jpg">
+                    <img src="../images/Doom-Eternal/Doom-Eternal-2.jpg" alt="Фото 2">
+                </div>
+                <div class="thumb" data-type="image" data-src="../images/Doom-Eternal/Doom-Eternal-3.png">
+                    <img src="../images/Doom-Eternal/Doom-Eternal-3.png" alt="Фото 3">
+                </div>
+
+                <!-- Видео-миниатюра -->
+                <div class="thumb" data-type="video" data-src="../videos/Doom-Eternal-trailer.webm">
+                    <div class="video-thumb-preview" style="background-image: url('../videos/Doom-Eternal-trailer.webm');"></div>
+                    <span class="play-icon">▶</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Описание товара -->
+        <section class="product-info">
+            <h1 class="product-title">Doom Eternal</h1>
+            <div class="product-price">15 990 ₽</div>
+            <p class="product-desc">
+                Полноценный сиквел Doom 2016 года. Армии ада вторглись на Землю. Станьте Палачом Рока и убейте демонов во всех измерениях, чтобы спасти человечество.
+Палач стал ещё опаснее и смертоноснее, ведь его в арсенале появились улучшенные огнемёт, клинок, пушки и бронекостюм. Убивайте демонов, сжигайте их, кромсайте бензопилой себе на пользу.
+Передача продукта и оплата производятся лично. Для вашего удобства возможна организация сделки через сервисы <a href="https://ru.pinterest.com/pin/620230179970677341/" class="btn-avito">Avito</a> <a href="https://ru.pinterest.com/pin/620230179970677341/" class="btn-telegram">telegram</a> <a href="https://ru.pinterest.com/pin/620230179970677341/" class="btn-VKонтакте">VKонтакте</a>
+
+            </p>
+            <ul class="product-features">
+                <li>Дата выхода: 20 марта 2020 года — для Windows, PlayStation 4, Xbox One и Google Stadia; декабрь 2020 года — для Nintendo Switch; июнь 2021 года — для PlayStation 5 и Xbox Series X/S</li>
+                <li> события разворачиваются спустя два года после событий на Марсе. Земля почти полностью захвачена демоническими силами, людские потери исчисляются миллиардами. Палач Рока должен остановить Культ Деаг, который вместе с перешедшей на сторону Ада Объединённой Аэрокосмической Корпорацией собирается уничтожить человечество. </li>
+                <li>Активация ключа через:Microsoft store</li>
+            </ul>
+        </section>
+    </main>
+
+    
+
+    <script>
+        // Получаем элементы
+        const mainImage = document.getElementById('main-image');
+        const thumbs = document.querySelectorAll('.thumb');
+        const buyBtn = document.querySelector('.buy-overlay-btn');
+
+        // Функция переключения контента
+        function changeMedia(e) {
+            // Убираем активный класс у всех
+            thumbs.forEach(t => t.classList.remove('active'));
+            // Добавляем текущему
+            e.classList.add('active');
+
+            const type = e.dataset.type;
+            const src = e.dataset.src;
+
+            if (type === 'image') {
+                mainImage.src = src;
+                mainImage.style.display = 'block';
+                buyBtn.style.display = 'flex'; // Показываем кнопку, если это картинка
+            }
+
+            if (type === 'video') {
+                mainImage.style.display = 'none'; // Скрываем картинку
+                buyBtn.style.display = 'none'; // Скрываем кнопку (нельзя купить поверх видео)
+                
+                // Создаем iframe для видео (если его еще нет)
+                if (!document.querySelector('#video-frame')) {
+                    const iframe = document.createElement('iframe');
+                    iframe.id = 'video-frame';
+                    iframe.src = src + "?autoplay=1&rel=0";
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.border = '0';
+                    
+                    // Вставляем iframe вместо картинки
+                    mainImage.parentNode.insertBefore(iframe, mainImage.nextSibling);
+                }
+            }
+        }
+
+        // Слушатели кликов по миниатюрам
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => changeMedia(thumb));
+        });
+    </script>
+
+</body>
+</html>
