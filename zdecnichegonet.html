@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скоро будет</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #1a0000; /* Очень темный бордовый, почти черный */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #e0e0e0;
+            text-align: center;
+        }
+
+        .message-box {
+            padding: 40px 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            color: #ff4d4d;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #b0b0b0;
+        }
+
+        .back-btn {
+            margin-top: 40px;
+            padding: 14px 30px;
+            background-color: #8b0000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid #6a0000;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #6a0000;
+        }
+
+        .back-btn:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message-box">
+        <h1>:( здесь пока ничего нет</h1>
+        <p>Но это не значит, что я бездельничаю! Просто раздел в разработке.</p>
+    </div>
+
+    <a href="javascript:history.back()" class="back-btn">Назад</a>
+
+</body>
+</html>

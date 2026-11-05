@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Сброс отступов */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            min-height: 100vh; /* Чтобы фон занимал весь экран */
+        }
+
+        /* Главный фоновый контейнер */
+        .wwwwsd {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; /* Центрируем по горизонтали */
+            align-items: center;     /* Центрируем по вертикали */
+            padding: 20px;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #800000 0%, #6a0000 40%, #4a0000 70%, #000000 100%);
+        }
+
+        /* Внутренний блок с текстом */
+        .wewewe {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            width: auto; /* Оставляем auto, чтобы ширина зависела от текста */
+            max-width: 90%; /* Ограничиваем ширину на маленьких экранах */
+            padding: 0 25px; /* Боковые отступы вместо фиксированной ширины */
+            
+            height: 40px; /* Увеличена высота для читаемости и красивых углов */
+            background: linear-gradient(135deg, #4a0000 0%, #3a0000 50%, #1a0000 100%);
+            
+            border-radius: 20px; /* Радиус не больше половины высоты (40/2 = 20) */
+            
+            color: #f0f0f0;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Если нужно сделать текст жирнее или изменить цвет */
+        .text {
+            /* Стили здесь не обязательны, если всё задано в .wewewe */
+        }
+    </style>
+</head>
+<body>
+    <div class="wwwwsd">
+        <div class="wewewe">
+            <div class="text">1 часть FG4V-</div>
+        </div>
+    </div>
+</body>
+</html>

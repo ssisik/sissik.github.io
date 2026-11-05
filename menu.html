@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+    <!-- Стили -->
+    <style>
+        /* Общие настройки */
+        * { 
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #1a1a1a; /* Темный фон для всего сайта */
+        }
+
+        /* Шапка сайта */
+        .zaglavnoemenu {
+            display: flex;
+            height: 45vh;
+            background: linear-gradient(135deg, rgba(96,27,27,1), rgba(131,39,39,1));
+            position: relative;
+            align-items: center;
+            padding-left: 5rem;
+        }
+        .foto {
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 2rem;
+            border: 4px solid #fff;
+            box-shadow: 0 0 20px rgba(167, 109, 109, 0.5);
+        }
+        .text-over-image {
+            line-height: 1.2;
+            text-shadow: 0 0 15px rgba(167, 109, 109, 0.5);
+            font-weight: bold;
+            font-size: clamp(1.5em, 3vw, 2.5em); 
+            z-index: 1;
+        }
+
+        /* Меню */
+        .menu-section {
+            background-color: rgb(39, 39, 39);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-top: 1px solid #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav.main-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        a.menu-link {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        a.menu-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #e57373;
+            left: 0;
+            bottom: -4px;
+            transition: width 0.2s ease;
+        }
+        a.menu-link:hover::after {
+            width: 100%;
+        }
+        a.menu-link:hover {
+            color: #e57373;
+            transform: translateY(-2px);
+        }
+        @media screen and (max-width: 768px) { 
+            nav.main-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 0 1rem;
+            }
+            .zaglavnoemenu {
+                padding-left: 1rem;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+            .foto {
+                margin-right: 0;
+                margin-bottom: 1rem;
+                height: 150px;
+                width: 150px;
+            }
+        }
+
+        /* Основной контент сайта */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            color: #a76d6d;
+            background-color: #121212;
+        }
+
+        /* Блок с постами — лента карточек */
+        .posts {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; /* Расстояние между карточками */
+            padding-top: 2rem;
+        }
+
+        /* КАРТОЧКА ПОСТА */
+        .post-card {
+            position: relative;
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #000;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ЛЕВАЯ ЧАСТЬ (Картинка) */
+        .post-image {
+            width: 55%;
+            background-image: url('images/posts/doom-left.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ПРАВАЯ ЧАСТЬ (Текст) */
+        .post-content {
+            width: 45%;
+            padding: 2.5rem 2rem 2.5rem 3rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+        }
+
+        /* Полупрозрачный градиент для читаемости текста */
+        .post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(96,27,27,0.9) 70%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* Поднимаем контент выше градиента */
+        .post-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .post-content h1,
+        .post-content h2,
+        .post-content h3 {
+            margin: 0 0 0.3em 0;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-family: 'AmazDooMRightOutline', sans-serif;
+            line-height: 1.1;
+        }
+
+        .post-content h1 {
+            font-size: clamp(2.5em, 8vw, 4em);
+            font-weight: 900;
+        }
+        .post-content h2 {
+            font-size: clamp(1.8em, 6vw, 2.5em);
+            color: #e57373;
+        }
+        .post-content h3 {
+            font-size: clamp(1.2em, 4vw, 1.5em);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+        }
+
+        /* КНОПКА */
+        .post-info {
+            align-self: flex-start;
+            margin-top: 1.5rem;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #e57373, #b71c1c);
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'AmazDooMRightOutline', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 15px rgba(229, 115, 115, 0.4);
+            transition: all 0.3s ease;
+        }
+        .post-info:hover {
+            transform: scale(1.05) translateX(-3px);
+            box-shadow: 0 6px 20px rgba(229, 115, 115, 0.6);
+            border-color: #ffd1d1;
+        }
+
+        /* Шрифт DOOM */
+        @font-face { 
+            font-family: 'AmazDooMRightOutline'; 
+            src: url('fonts/AmazDooMRightOutline.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* АДАПТИВ (Mobile First) */
+        @media screen and (max-width: 768px) {
+            .post-card {
+                flex-direction: column;
+                height: auto;
+            }
+            .post-image {
+                width: 100%;
+                height: 250px;
+            }
+            .post-content {
+                width: 100%;
+                padding: 1.5rem;
+            }
+            .post-card::before {
+                background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(96,27,27,0.9) 80%, transparent 100%);
+            }
+            .content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхняя часть -->
+    <div class="zaglavnoemenu">
+        <img src="images/avatar/f840c04e-cce4-4904-a738-4d90a1c683e8.jpg" alt="фото" class="foto">
+        <div class="text-over-image">«Hello, Sidney!»...</div>
+    </div>
+
+    <!-- Секция с меню -->
+    <div class="menu-section">
+        <nav class="main-menu">
+            <a href="prodazakey.html" class="menu-link">Магазин</a>
+            <a href="zdecnichegonet.html" class="menu-link">Обо мне</a>
+            <a href="zdecnichegonet.html" class="menu-link">Портфолио</a>
+            <a href="blankkk.html" class="menu-link">Услуги</a>
+            <a href="kontakt.html" class="menu-link">Контакты</a>
+        </nav>
+    </div>
+
+    <!-- Основной контент сайта -->
+    <div class="content">
+      <!-- Лента постов -->
+      <div class="posts">
+          <!-- Ваш первый пост (карточка) -->
+          <div class="post-card">
+              <!-- ЛЕВАЯ ЧАСТЬ (картинка) -->
+              <div class="post-image"></div>
+              
+              <!-- ПРАВАЯ ЧАСТЬ (текст) -->
+              <div class="post-content">
+                  <h1>DOOM</h1>
+                  <h2>Розыгрыш</h2>
+                  <h3>Eternal</h3>
+                  <a href="rosigrish.html" class="post-info">Узнать подробности</a>
+              </div>
+          </div>
+
+          <!-- ПРИМЕР ВТОРОГО ПОСТА (просто скопируйте этот блок ниже для добавления новых) -->
+          <!--
+          <div class="post-card">
+              <div class="post-image" style="background-image: url('images/posts/ваша-новая-картинка.jpg');"></div>
+              <div class="post-content">
+                  <h1>ЗАГОЛОВОК</h1>
+                  <h2>Подзаголовок</h2>
+                  <h3>Дополнительный текст</h3>
+                  <a href="#" class="post-info">Читать</a>
+              </div>
+          </div>
+          -->
+      </div>
+    </div>
+</body>
+</html>

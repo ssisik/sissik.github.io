@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Сбросим стандартные отступы браузера */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #6a0000 0%, #4a0000 50%, #2a0000 100%);
+            background-attachment: fixed; /* Чтобы фон не прокручивался вместе с контентом */
+        }
+
+        .kontakt {
+            width: 100%;
+            min-height: 100vh; /* Занимаем всю высоту экрана */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Блок для сообщений */
+        .place {
+            width: 100%;
+            max-width: 800px; /* Ограничиваем ширину, чтобы на больших экранах не растягивалось */
+            height: auto; /* Высота по контенту */
+            min-height: 50px;
+            
+            /* Градиентный фон для контейнера с сообщениями */
+            background: linear-gradient(180deg, #1a0000 0%, #000000 100%);
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 12px; /* Скругление углов */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .text {
+            color: aliceblue; /* Чистый белый цвет для текста */
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="kontakt">
+        <div class="place">
+            <div class="text">Как связаться?<a href="rozigrichdoom/bdoom1.html"> <img src="images/avatar/0zK-mGMd-OY_8G3GdV5c3w.png" style="width: 5%; height: auto;" alt="демон"></a></div>
+            <p><a href="https://vk.ru/club242362407">VKонтакте</a></p>
+            <p><a href="https://t.me/Kaspersky_Seccurity">TG-Telegramm</a></p>
+            <p><a href="https://www.avito.ru/user/884a032dec3fe13870f2382d5ace480c/profile?utm_medium=soc_sharing&utm_source=vk&utm_campaign=native&utm_content=vk&utm_term=native">Avito</a></p>
+        </div>
+    </div>
+</body>
+</html>

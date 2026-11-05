@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    <style>
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: 
+        linear-gradient(135deg, #1a0000 0%, #2b0303 30%, #3d0505 70%, #4a0000 100%);
+}
+
+        .blank {
+            width: 320px;
+            min-height: 100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 12px;
+        }
+
+        .blank::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Темно-красный с низкой прозрачностью */
+            background-color: rgba(150, 0, 0, 0.2); 
+            filter: blur(10px);
+            z-index: -1;
+            border-radius: 12px;
+        }
+        
+        .text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.4;
+            /* Градиент от алого к насыщенному бордовому */
+            background: linear-gradient(135deg, #ff6b6b, #ef233c, #c0122d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.5px;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Эффект при наведении: красное свечение */
+        .text:hover {
+            transform: scale(1.05);
+            text-shadow: 0 4px 15px rgba(239, 35, 60, 0.6), 0 0 20px rgba(239, 35, 60, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blank">
+        <div class="text">
+            Собрка ПК • Верстка сайтов • подбор железа<a href="rozigrichdoom/bdom.html"> <img src="images/avatar/0zK-mGMd-OY_8G3GdV5c3w.png" style="width: 8%; height: auto;" alt="демон"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>DOOM Eternal — Розыгрыш</title>
+    <!-- Подключение шрифта DOOM -->
+    <style>
+        @font-face {
+            font-family: 'AmazDooM';
+            src: url('fonts/AmazDooMRightOutline.ttf') format('truetype');
+        }
+
+        /* === ФОНОВАЯ КАРТИНКА ДЛЯ ВСЕЙ СТРАНИЦЫ === */
+        body {
+            margin: 0;
+            color: #fff;
+            background-color: #1a1a1a; /* Резервный цвет */
+            overflow-x: hidden; /* Убираем горизонтальный скролл */
+            display: flex; /* Центрирование контента */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Чтобы страница занимала всю высоту экрана */
+        }
+        /* Контейнер для двух карточек */
+        .page-wrap {
+            max-width: 960px;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            background-color: transparent; /* Важно! Картинки должны быть видны под ним */
+            display: flex;
+            gap: 2rem;
+        }
+
+        @media screen and (max-width: 768px) { 
+            .page-wrap { flex-direction: column-reverse; } /* Мобильная версия */
+        }
+
+        /* Левая часть — карточка товара */
+        .product-card {
+            width: 40%; /* Ширина левой части */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(to bottom, #000, #333); /* Градиент только для этой карточки */
+        }
+
+        .product-banner img {
+            display: block;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .product-info h4,
+        .product-info p {
+            margin: 0;
+            line-height: 1.4;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .product-info h4 {
+            font-size: clamp(1.2em, 3vw, 1.5em);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            color: #e57373;
+        }
+
+        .product-button {
+            display: flex;
+            margin-top: 1.5rem;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0078d4, #005a9e);
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .product-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 120, 212, 0.4);
+        }
+
+        /* Правая часть — текст о розыгрыше */
+        .post-text-content {
+            width: 60%; /* Ширина правой части */
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: inherit; /* Наследуем тень от page-wrap */
+            background: linear-gradient(to bottom right, #4D0E0E, #A76D6D);
+        }
+
+        .post-text-content h1,
+        .post-text-content h2,
+        .post-text-content h3 {
+            margin: 0 0 0.3em 0;
+            line-height: 1.1;
+            font-family: 'AmazDooM', Impact, fantasy;
+        }
+
+        .post-text-content h1 {
+            font-size: clamp(2.5em, 8vw, 4em);
+            font-weight: 900;
+        }
+
+        .post-text-content h2 {
+            font-size: clamp(1.8em, 6vw, 2.5em);
+            color: #e57373;
+        }
+
+        .post-text-content h3 {
+            font-size: clamp(1.2em, 4vw, 1.5em);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+        }
+
+        .post-info {
+            align-self: flex-start;
+            margin-top: 1.5rem;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #e57373, #b71c1c);
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 15px rgba(229, 115, 115, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .post-info:hover {
+            transform: scale(1.05) translateX(-3px);
+            box-shadow: 0 6px 20px rgba(229, 115, 115, 0.6);
+            border-color: #ffd1d1;
+        }
+    </style>
+</head>
+<body>
+<!-- ЭТО ВАЖНО! Блок с изображением -->
+<div class="bg-image"></div>
+
+<div class="page-wrap"> 
+    <!-- ЛЕВАЯ ЧАСТЬ -->
+    <div class="product-card">
+        <div class="product-banner">
+            <img src="images/posts/Doomete.jpg" alt="DOOMETERNAL">
+        </div>
+        <div class="product-info">
+            <h4>DOOM Eternal</h4>
+            <p>Шутер от первого лица, продолжение легендарной серии DOOM.</p>
+            <a href="prodazakey.html" class="product-button">Купить в Магазине</a>
+        </div>
+    </div>
+
+    <!-- ПРАВАЯ ЧАСТЬ -->
+    <div class="post-text-content">
+        <h1>DOOM ETERNAL</h1>
+        <h2>РОЗЫГРЫШ</h2>
+        <h3>НАЙДИТЕ ВСЕ ФРАГМЕНТЫ КЛЮЧА АКТИВАЦИИ</h3>
+
+        <p>Масштабный квест по всему сайту. Чтобы получить ключ от DOOM Eternal для Microsoft Store, вам предстоит найти несколько демонов раскиданных по всем страницам.</p>
+
+        <strong>Как это работает:</strong>
+        <ul style="list-style-type: disc; padding-left: 2rem;">
+            <li>Исследуйте разделы «Портфолио», «Услуги» и «Обо мне».</li>
+            <li>Ищите спрятанные изображения демонов.</li>
+            <li>С каждым найденным демоном вы будете получать часть финального кода активации.</li>
+        </ul>
+
+        <p>Первый, кто соберёт полный ключ, получит игру бесплатно.</p>
+
+        <a href="menu.html" class="post-info">ПРИСТУПИТЬ К ПОИСКУ <a href="rozigrichdoom/bdoom.html"> <img src="images/avatar/0zK-mGMd-OY_8G3GdV5c3w.png" style="width: 5%; height: auto;" alt="демон"></a> </a>
+    </div>
+</div>
+</body>
+</html>
